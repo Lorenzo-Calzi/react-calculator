@@ -1,4 +1,3 @@
-/* import logo from './logo.svg'; */
 import React,  { useState, useEffect, useRef} from "react";
 import './App.css';
 
@@ -8,19 +7,19 @@ function App() {
 
   useEffect(() => inputRef.current.focus())
 
-  function handleClick(e) {
-    setResult(result.concat(e.target.name))
+  const handleClick = (e) => {
+    setResult(result.concat(e.target.value))
   }
 
-  function backspace() {
+  const backspace = () => {
     setResult(result.slice(0, -1))
   }
 
-  function clear() {
+  const clear = () => {
     setResult("")
   }
 
-  function calculate() {
+  const calculate = () => {
     try {
       setResult(eval(result).toString())
     } catch(error) {
@@ -34,28 +33,28 @@ function App() {
 
       <div className="calculator">
         <form>
-          <input type="text" ref={inputRef} value={result}/>
+          <input type="text" ref={inputRef} value={result} placeholder="0"/>
         </form>
         
         <div className="tastiera">
           <button id="clear" onClick={clear}>C</button>
-          <button className="brackets" name="(" onClick={handleClick}>(</button>
-          <button className="brackets" name=")" onClick={handleClick}>)</button>
-          <button className="operator" name="*" onClick={handleClick}>&times;</button>
-          <button className="numbers" name="7" onClick={handleClick}>7</button>
-          <button className="numbers" name="8" onClick={handleClick}>8</button>
-          <button className="numbers" name="9" onClick={handleClick}>9</button>
-          <button className="operator" name="+" onClick={handleClick}>+</button>
-          <button className="numbers" name="4" onClick={handleClick}>4</button>
-          <button className="numbers" name="5" onClick={handleClick}>5</button>
-          <button className="numbers" name="6" onClick={handleClick}>6</button>
-          <button className="operator" name="-" onClick={handleClick}>-</button>
-          <button className="numbers" name="1" onClick={handleClick}>1</button>
-          <button className="numbers" name="2" onClick={handleClick}>2</button>
-          <button className="numbers" name="3" onClick={handleClick}>3</button>
-          <button className="operator" name="/" onClick={handleClick}>/</button>
-          <button className="numbers" name="." onClick={handleClick}>.</button>
-          <button className="numbers" name="0" onClick={handleClick}>0</button>
+          <button className="brackets" value="(" onClick={handleClick}>(</button>
+          <button className="brackets" value=")" onClick={handleClick}>)</button>
+          <button className="operator" value="*" onClick={handleClick}>&times;</button>
+          <button className="numbers" value="7" onClick={handleClick}>7</button>
+          <button className="numbers" value="8" onClick={handleClick}>8</button>
+          <button className="numbers" value="9" onClick={handleClick}>9</button>
+          <button className="operator" value="+" onClick={handleClick}>+</button>
+          <button className="numbers" value="4" onClick={handleClick}>4</button>
+          <button className="numbers" value="5" onClick={handleClick}>5</button>
+          <button className="numbers" value="6" onClick={handleClick}>6</button>
+          <button className="operator" value="-" onClick={handleClick}>-</button>
+          <button className="numbers" value="1" onClick={handleClick}>1</button>
+          <button className="numbers" value="2" onClick={handleClick}>2</button>
+          <button className="numbers" value="3" onClick={handleClick}>3</button>
+          <button className="operator" value="/" onClick={handleClick}>/</button>
+          <button className="numbers" value="." onClick={handleClick}>.</button>
+          <button className="numbers" value="0" onClick={handleClick}>0</button>
           <button id="backspace" onClick={backspace}><i class="fas fa-backspace"></i></button>
           <button id="result" onClick={calculate}>=</button>
         </div>
